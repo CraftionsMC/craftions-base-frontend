@@ -1,15 +1,15 @@
 {
-  "name": "@craftions/craftions-base-app",
+  "name": "@craftions/craftions-base-frontend",
   "version": "1.0.0",
-  "description": "A base template for every craftions webapp",
+  "description": "A base template for every craftions webapp that does not need a backend service.",
   "main": "server/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CraftionsMC/craftions-base"
+    "url": "https://github.com/CraftionsMC/craftions-base-frontend"
   },
-  "homepage": "https://github.com/CraftionsMC/craftions-base#readme",
+  "homepage": "https://github.com/CraftionsMC/craftions-base-frontend#readme",
   "bugs": {
-    "url": "https://github.com/CraftionsMC/craftions-base/issues"
+    "url": "https://github.com/CraftionsMC/craftions-base-frontend/issues"
   },
   "scripts": {
     "webpack:clean": "rm dist/bundle.js",
@@ -17,17 +17,14 @@
     "webpack:build-prod": "webpack --mode production",
     "webpack:watch": "webpack --watch",
     "webpack:start": "webpack serve",
-    "express:dev-start": "npm run webpack:build-dev && npm run express:only-start",
-    "express:prod-start": "npm run webpack:build-prod && npm run express:only-start",
-    "express:only-start": "node server/index.js",
-    "express:live-start": "concurrently \"npm run webpack:watch\" \"npm run express:only-start\"",
     "eslint:lint": "eslint . --ext .ts,.tsx",
     "prettier:check": "prettier --check src",
     "prettier:write": "prettier --write src",
     "npm:deploy": "npm publish",
-    "docker:build": "docker build . -t\"mctzock/craftions-base\"",
-    "docker:deploy": "docker push mctzock/craftions-base",
-    "docker:run": "docker run -d --publish 8080:3000 --name craftions-base mctzock/craftions-base",
+    "docker:build": "docker build . -t\"mctzock/craftions-base-frontend\"",
+    "docker:deploy": "docker push mctzock/craftions-base-frontend",
+    "docker:run": "docker run -d --publish 8080:3000 --name craftions-base-frontend mctzock/craftions-base-frontend",
+    "docker:run::container": "node server/index.js",
     "nodemon:start": "nodemon --config nodemon.json"
   },
   "author": "The Craftopns Developers",

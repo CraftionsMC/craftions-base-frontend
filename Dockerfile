@@ -4,4 +4,4 @@ WORKDIR /craftions-app
 COPY . /craftions-app
 RUN yarn
 RUN yarn webpack:build-prod
-ENTRYPOINT yarn express:only-start
+ENTRYPOINT yarn docker:run::container
